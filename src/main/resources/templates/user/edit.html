@@ -1,0 +1,80 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Notaneitor</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!-- Barra de Navegación superior -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img src="/img/student-48.png" alt="logo"/>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/mark/list">Ver Notas</a></li>
+                <li><a href="/mark/add">Agregar Nota</a></li>
+                <li><a href="/mark/filter">Filtrar</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/user/list">Ver Notas</a></li>
+                <li><a href="/user/add">Agregar Nota</a></li>
+                <li><a href="/user/filter">Filtrar</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/registrarse"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
+                <li><a href="/identificarse"><span class="glyphicon glyphicon-log-in"></span> Identifícate</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="container">
+    <h2>Editar Nota</h2>
+    <form class="form-horizontal" method="post" th:action="${'/user/edit/'+user.id}">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="dni">DNI:</label>
+            <div class="col-sm-10">
+                <input  th:value="${user.dni}" type="text" class="form-control"
+                        name="dni" placeholder="12345678A" required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="nombre">Nombre:</label>
+            <div class="col-sm-10">
+                <input  th:value="${user.name}" type="text" class="form-control"
+                        name="nombre" placeholder="Luis" required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="apellidos">Apellidos:</label>
+            <div class="col-sm-10">
+                <input  th:value="${user.lastName}" type="text" class="form-control"
+                        name="apellidos" placeholder="Lopez" required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Modificar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+</body>
+</html>
