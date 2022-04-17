@@ -3,7 +3,9 @@ package com.uniovi.sdi2122317spring.services;
 import java.util.*;
 import javax.annotation.PostConstruct;
 
+import com.uniovi.sdi2122317spring.entities.Provider;
 import com.uniovi.sdi2122317spring.entities.User;
+import com.uniovi.sdi2122317spring.repositories.UserRepository;
 import com.uniovi.sdi2122317spring.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -35,6 +37,9 @@ public class UsersService {
     public User getUserByDni(String dni) {
         return usersRepository.findByDni(dni);
     }
+
+
+
     public void deleteUser(Long id) {
         usersRepository.deleteById(id);
     }

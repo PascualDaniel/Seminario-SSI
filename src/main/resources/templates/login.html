@@ -1,5 +1,6 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="fragments/head"/>
 <body>
 <nav th:replace="fragments/nav"/>
@@ -27,6 +28,10 @@
         </div>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     </form>
+    <h2>O con google</h2>
+    <div>
+        <a th:href="@{/oauth2/authorization/google}">Login with Google</a>
+    </div>
 </div>
 <footer th:replace="fragments/footer"/>
 </body>

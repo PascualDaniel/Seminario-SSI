@@ -2,6 +2,8 @@ package com.uniovi.sdi2122317spring.entities;
 
 import javax.persistence.*;
 import java.util.Set; //A collection that contains no duplicate elements
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 @Entity
 @Table(name = "user")
 public class User {
@@ -14,6 +16,8 @@ public class User {
     private String lastName;
     private String role;
 
+    private String username;
+    private boolean enabled;
     private String password;
 
     @Transient //propiedad que no se almacena e la tabla.
@@ -28,6 +32,27 @@ public class User {
         this.lastName = lastName;
     }
     public User() { }
+
+
+    @Enumerated(EnumType.STRING)
+    private Provider provider;
+
+    public Provider getProvider() {
+        return provider;
+    }
+
+    public void setProvider(Provider provider) {
+        this.provider = provider;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }
     public String getDni() {return dni; }
@@ -72,5 +97,13 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public void setEnabled(boolean b) {
+        this.enabled=b;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
     }
 }
